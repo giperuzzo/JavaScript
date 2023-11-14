@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos</title>
+    <!-- comando create elements, criar dinamicamente -->
+    <script>
+
+        // Vetor de cidades
+        let cidades = ["São Paulo", "Curitiba", "Rio de Janeiro", "Florianópolis", "Osasco"]
+        
+        // Ao carregar
+        window.onload = function(){
+            // Obter o elemento ul
+            let lista = document.getElementsByTagName("ul")[0]
+
+            // Laço de repetição
+            for(let i = 0; i < cidades.length; i++){
+    
+                // Criar o elemento li
+                let item = document.createElement("li");
+
+                // Adicionar texto no elemento li?
+                item.innerText = cidades[i]
+
+                // Adicionar elemento li na lista
+                lista.appendChild(item);
+            }
+        }
+    
+    </script>
+
+</head>
+<body>
+    <!-- Lista Não Ordenada -->
+    <ul></ul>
+</body>
+</html>
