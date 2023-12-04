@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - Assincrona exemplo 2</title>
+    <script>
+
+        // function requisição
+        async function requisicao(){
+            let requisicao = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+            let pokemons = await requisicao.json();
+            pokemons.results.map(linha => {requisicaoPokemon(linha.url)});
+        }
+
+        // trabalhando com so um pokemon através da url da requisição
+        // requisição de pokemons
+
+        async function requisicaoPokemon(url){
+            // requisição de pokemons
+           let requisicao = await fetch(url);
+           let pokemon = await requisicao.json();
+        //    obter o elemento listagem
+        let listagem = document.getElementById('listagem');
+    //    criando um elemento de img
+
+    let imagem = document.createElement('img');
+
+    // adicionar a imagem do pokemon
+    imagem.src = pokemon.sprites.front_default;
+
+    // adicionar a imagem na div listagem
+        listagem.appendChild(imagem);
+          
+        }
+        // executar função
+        window.onload = function(){
+        requisicao();
+    }
+    </script>
+</head>
+<body>
+<div id="listagem"></div>
+</body>
+</html>

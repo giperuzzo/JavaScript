@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - Assíncrona</title>
+    <script>
+        // // exemplo como usar uma api
+        // fetch('https://pokeapi.co/api/v2/pokemon/ditto') 
+        // // pedindo o retorno da api .json
+        // .then(requisicao => requisicao.json())
+        // // retornando a api
+        // .then(retorno => console.log(retorno));
+
+        // criando função para requisição
+        // function requisicao(){
+        //     // evitar fazer fetch dentro de for o projeto fica lento e pode travar o navegador é so um exemplo
+        //     for(let indice=1; indice<=151; indice++){
+        //     fetch('https://pokeapi.co/api/v2/pokemon/'+indice) 
+        // // pedindo o retorno da api .json
+        //     .then(requisicao => requisicao.json())
+        // // retornando a api
+        //     .then(retorno => console.log(retorno.name));
+
+        //     }
+        // }
+        // tornando o fetch para assincrono
+        async function requisicao(){
+            // evitar fazer fetch dentro de for o projeto fica lento e pode travar o navegador é so um exemplo
+            for(let indice=1; indice<=151; indice++){
+            let requisicao = await fetch('https://pokeapi.co/api/v2/pokemon/'+indice);
+            let pokemon = await requisicao.json();
+            console.log(pokemon.name);
+        
+            }
+        }
+// chamar a função requisição
+        requisicao();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

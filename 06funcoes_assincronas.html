@@ -1,0 +1,49 @@
+<!-- funções assincronas = estar em paralelo front end e back end  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Promise-async-await</title>
+    <script>
+        // função mensagem 1
+        function mensagem1(){
+            // qdo comeca com letra maiscula se trata de um objeto/classe e inicia com a palavra new
+            // o que é um promise é uma promessa que vamos receber um retorno / para trabalhar com api e a função tem que ser assincrona entao usamos a palavra async antes da function
+            // qdo trabalhamos com um arrowfunction dentro de um promise posso pass ar parametros
+            // exemplo de parametro 
+            // Promise((parametro1) => {}) quer dizer que vai retornar a informação correta 
+            // Promise((parametro1, parametro2) => {}) parametro 2 se der errado em qq linha do retorno do paramentro 1 o dois retorna mostrando o erro
+            // Promise((parametro1, parametro2, parametro3) => {})  o parametro3 é uma ação que executa independente dos dois anteriores serem executados corretamente ou não
+            return new Promise((retorno) =>{
+                setTimeout(() => {
+                    retorno( 'Primeira mensagem');
+                }, 1000);
+            });
+        }
+        // função mensagem 2
+        function mensagem2(){
+            return 'Segunda mensagem';
+            
+        }
+        // função para executar as mensagens
+        // qdo usamos async colocamos a palavra await "espera" antes do valor da variável
+       async function executarMensagens() {
+        // obter o retorno das mensagens
+        let r1 = await mensagem1();
+        let r2 = mensagem2();
+        
+        // console
+        console.log(r1);
+        console.log(r2);
+       }
+
+    //    chamar função
+       executarMensagens();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
